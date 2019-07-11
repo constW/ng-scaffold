@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+.page {
+  height: 100%;
+  overflow-y: auto;
+}
+.hide {
+  display: none!important;
+}
+h2.head {
+  font-size: 16px;
+  color: #192133;
+  font-weight: bold;
+  margin: 0;
+  background: #fff;
+  line-height: 56px;
+  padding: 0 20px;
+}
+.content {
+  padding: 16px;
+  & > section {    
+    border-radius: 4px;
+    background: #fff;
+    min-height: calc(100vh - 149px);    
+    &>div[nz-row] {
+      &>div[nz-col] {
+        &>div {
+          position: relative;
+          padding-left: 75px;
+          &>span {
+            position: absolute;
+            text-align: right;
+            display: inline-block;
+            line-height: 32px;
+            width: 75px;
+            left: 0;
+            top: 0;
+          }
+        }        
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+.content{
+  .chart{
+    padding-top: 16px;
+  }
+}
+.pr-4{
+  padding-right: 4px !important;
+  
+}
+.links{
+  .link{
+    border-radius: 2px;    
+    color:#ffffff;        
+    text-align: center;
+    position: relative;        
+    height: 120px;
+    padding: 0;
+    border: #E7E8EF 1px solid;
+    .cont{  
+      cursor: pointer;
+      display: flex;
+      padding: 30px 20px 40px 30px;
+      .title{
+        font-family: MicrosoftYaHei;
+        font-size: 14px;
+        color: #ffffff;
+        line-height: 21px;
+        padding-left: 15px;
+        padding-top: 5px;
+      }
+      .total{
+        font-family: MicrosoftYaHei-Bold;
+        font-size: 26px;
+        color: #ffffff
+        
+        ;
+        line-height: 22px;
+        position: absolute;
+        top: 55%;
+        font-weight: bold;
+        left: 105px;          
+      }     
+    }
+  }  
+}    
+a img{
+  position: absolute;
+  top: 15px;
+  right:0;
+  width: 50px;    
+}           
+.chart {
+  // position: absolute;
+  height: 100%;
+  width: 100%;
+  // top: 5px;
+}
+::ng-deep .ant-card{
+  border-radius: 2px;
+}
+::ng-deep .ant-card-head-title{
+  font-size: 16px;
+  color: rgba(25,33,51,0.85);
+  font-weight: bold;
+  letter-spacing: 0.6px;
+}
+::ng-deep .ant-card-body{
+  min-height: 425px;
+}
+@media (max-width: 1440px){	
+	.pr-4{
+    ::ng-deep .ant-card-body{
+      padding: 13px !important;
+    }
+  }
+}

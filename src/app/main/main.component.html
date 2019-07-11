@@ -1,0 +1,47 @@
+<nz-layout>
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+    <div class="logo"><img src="assets/images/logo.png"></div>
+    <ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
+      <ng-container *ngFor="let m of menu" [ngSwitch]="m.sub">
+        <li nz-menu-item nz-tooltip nzPlacement="right" *ngSwitchCase="false" (click)="navigate(m)"
+          [nzSelected]="currentModule && currentModule.url === m.url">
+          <span title>
+            <i nz-icon type="{{m.icon}}"></i>
+            <span>{{m.text}}</span>
+          </span>
+        </li>
+        <li nz-submenu *ngSwitchCase="true" [nzOpen]="!isCollapsed && isMySub(m)">
+          <span title>
+            <i nz-icon type="{{m.icon}}"></i>
+            <span>{{m.text}}</span>
+          </span>
+          <ul>
+            <li nz-menu-item *ngFor="let s of m.children" [nzSelected]="currentModule && currentModule.url === s.url"
+              (click)="navigate(s)">{{s.text}}</li>
+          </ul>
+        </li>
+      </ng-container>
+
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+        (click)="isCollapsed = !isCollapsed"></i>
+      <div class="user" nz-dropdown [nzDropdownMenu]="set">
+        <nz-avatar [nzText]="'admin'" nzSize="large" [ngStyle]="{ 'background-color': '#00a2ae' }"
+          style="vertical-align: middle;"></nz-avatar>
+      </div>
+      <nz-dropdown-menu #set="nzDropdownMenu">
+        <ul nz-menu nzSelectable>
+          <li nz-menu-item><i nz-icon type="user" class="mr-sm"></i>个人中心</li>
+          <li nz-menu-item><i nz-icon nzType="logout" nzTheme="outline"></i>退出</li>
+        </ul>
+      </nz-dropdown-menu>
+    </nz-header>
+    <nz-content>
+        <router-outlet></router-outlet>
+    </nz-content>
+    <nz-footer>Ant Design ©2019 Implement By Angular</nz-footer>
+  </nz-layout>
+</nz-layout>

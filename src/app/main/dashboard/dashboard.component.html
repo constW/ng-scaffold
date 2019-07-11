@@ -1,0 +1,42 @@
+<div class="page">
+  <article class="content">    
+    <div nz-row [nzGutter]="24" class="links">
+      <div nz-col [nzSpan]="6" class="pr-4">
+        <div class="link" style="    background-color: #1890ff!important;">
+          <div class="cont" (click)="goProList()">            
+            <div class="title">
+              工程数量（个）</div>
+            <span class="total">200</span>
+          </div>
+        </div>
+      </div>
+      <div nz-col [nzSpan]="6" class="pr-4">
+        <div class="link">
+          <div class="cont" (click)="goProList()">            
+            <div class="title">
+              数据源数量（个）</div>
+            <span class="total">999</span>
+          </div>
+        </div>
+      </div>
+      <div nz-col [nzSpan]="6" class="pr-4">
+        <div class="link">
+          <div class="cont" (click)="goProList()">            
+            <div class="title">
+              总数据量（条）</div>
+            <span class="total">68,698</span>
+          </div>
+        </div>
+      </div>
+      <div nz-col [nzSpan]="6" (click)="goProList()">
+        <div class="link">
+          <div class="cont">            
+            <div class="title">
+              占用空间（GB）</div>
+            <span class="total">187</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
