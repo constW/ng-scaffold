@@ -72,7 +72,8 @@
           "options": {
             "browserTarget": "ng-scaffold:build",
             "extraWebpackConfig": "node_modules/@typebytes/ngx-template-streams/webpack/webpack.config.js",
-            "plugin": "~node_modules/@typebytes/ngx-template-streams/internal/plugin.js"
+            "plugin": "~node_modules/@typebytes/ngx-template-streams/internal/plugin.js",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
