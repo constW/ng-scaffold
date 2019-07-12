@@ -14,12 +14,13 @@ onerror(app);
 
 // middlewares
 app.use(session({
-  key: 'koa:sess',
-  domain: '.sdyaq.com',
+  key: 'ticketOfPassport',
+  domain: 'localhost',
+  port: '4200',
   maxAge: 1000 * 60 * 60 * 24 * 7
 }, app));
 
-app.use(convert(bodyparser({jsonLimit: '50mb'})));
+app.use(convert(bodyparser({ jsonLimit: '50mb' })));
 app.use(json());
 
 if (process.env.NODE_ENV !== 'production') {

@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
       this.loginService.login(value)
         .pipe(finalize(() => this.isSpinning = false))
         .subscribe((resp: any) => {
-          this.cookieService.set('ticketOfPassport', JSON.stringify(resp));
+          this.cookieService.set('info', JSON.stringify(resp));
           this.router.navigate(['/main']);
         });
     }
