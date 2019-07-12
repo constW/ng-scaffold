@@ -1,0 +1,9 @@
+{
+    "code": 1,
+    "data": {
+        "username": "张三",
+        "id": "admin",
+        "password": "121212"
+    },
+    "message": "请求成功"
+}

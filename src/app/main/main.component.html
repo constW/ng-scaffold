@@ -29,18 +29,19 @@
       <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
         (click)="isCollapsed = !isCollapsed"></i>
       <div class="user" nz-dropdown [nzDropdownMenu]="set">
-        <nz-avatar [nzText]="'admin'" nzSize="large" [ngStyle]="{ 'background-color': '#00a2ae' }"
+        <nz-avatar [nzText]="userInfo?.id" nzSize="large" [ngStyle]="{ 'background-color': '#00a2ae' }"
           style="vertical-align: middle;"></nz-avatar>
+        <span>您好，{{userInfo?.username}}</span>
       </div>
       <nz-dropdown-menu #set="nzDropdownMenu">
         <ul nz-menu nzSelectable>
           <li nz-menu-item><i nz-icon type="user" class="mr-sm"></i>个人中心</li>
-          <li nz-menu-item><i nz-icon nzType="logout" nzTheme="outline"></i>退出</li>
+          <li nz-menu-item (click)="logout()"><i nz-icon nzType="logout" nzTheme="outline"></i>退出</li>
         </ul>
       </nz-dropdown-menu>
     </nz-header>
     <nz-content>
-        <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
     </nz-content>
     <nz-footer>Ant Design ©2019 Implement By Angular</nz-footer>
   </nz-layout>

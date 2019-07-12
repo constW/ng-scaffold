@@ -4,6 +4,7 @@ import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
 import { SharedModule } from '../shared/shared.module';
 import { MainService } from './main.service';
+import { AccountService } from '../core/account.service';
 @NgModule({
   declarations: [MainComponent],
   imports: [
@@ -15,7 +16,8 @@ import { MainService } from './main.service';
     MainComponent,
   ],
   providers: [
-    MainService
+    MainService,
+    AccountService
   ],
 
 })

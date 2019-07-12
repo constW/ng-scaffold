@@ -52,13 +52,13 @@
                 {
                     "text": "预留信息",
                     "icon": "",
-                    "url": "/main/notice",
+                    "url": "/main/info",
                     "sub": false
                 },
                 {
                     "text": "修改密码",
                     "icon": "",
-                    "url": "/main/setIcon",
+                    "url": "/main/setPwd",
                     "sub": false
                 }
             ]

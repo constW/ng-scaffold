@@ -11,6 +11,8 @@ import zh from '@angular/common/locales/zh';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { MyInterceptor } from './core/my.interceptor';
+import { LoginModule } from './login/login.module';
+import { LoginGuard } from './core/login.guard';
 registerLocaleData(zh);
 
 @NgModule({
@@ -24,9 +26,10 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    LoginModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }, { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true },],
+  providers: [{ provide: NZ_I18N, useValue: zh_CN }, { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true }, LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

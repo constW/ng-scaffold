@@ -1,0 +1,59 @@
+<div class="form-box">
+    <div class="login-title">
+        <span>欢迎登录</span>
+    </div>
+    <nz-row class="login-control">
+        <form nz-form [formGroup]="validateForm" class="login-form">
+            <nz-form-item>
+                <nz-form-control>
+                    <nz-input-group [nzPrefix]="prefixUser">
+                        <input class="text-left ipt_height" type="text" nz-input formControlName="login"
+                            placeholder="请输入用户名">
+                    </nz-input-group>
+                    <nz-form-explain *ngIf="validateForm.get('login').dirty && validateForm.get('login').errors">
+                        <i nz-icon class="mrg-right-5" nzType="close-circle" nzTheme="outline"></i>
+                        请输入登录账号
+                    </nz-form-explain>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control>
+                    <nz-input-group [nzPrefix]="prefixLock">
+                        <input type="password" class="text-left ipt_height" nz-input formControlName="password"
+                            placeholder="请输入登录密码">
+                    </nz-input-group>
+                    <nz-form-explain *ngIf="validateForm.get('password').dirty && validateForm.get('password').errors">
+                        <i nz-icon class="mrg-right-5" nzType="close-circle" nzTheme="outline"></i>
+                        请输入登录密码
+                    </nz-form-explain>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control class="mrg-top-20">
+                    <nz-spin [nzSpinning]="isSpinning" [nzDelay]="500">
+                        <button nz-button class="login-form-button" [nzType]="'primary'" (click)="submit()">
+                            <span class="font-bold">登</span>
+                            <span class="font-bold mrg-left-10">录</span>
+                        </button>
+                    </nz-spin>
+                </nz-form-control>
+            </nz-form-item>
+            <!-- <span class="pointer">
+                没有账号？
+                <a [routerLink]="['/register']">立即注册</a>
+            </span>
+            <span class="float-right pointer">
+                <a [routerLink]="['/retrive']">忘记密码？</a>
+            </span> -->
+        </form>
+        <ng-template #prefixUser>
+            <i nz-icon type="user"></i>
+        </ng-template>
+        <ng-template #prefixLock>
+            <i nz-icon type="lock"></i>
+        </ng-template>
+        <ng-template #prefixSafety>
+            <i nz-icon nzType="safety" nzTheme="outline"></i>
+        </ng-template>
+    </nz-row>
+</div>

@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { filter, takeWhile, map } from 'rxjs/operators';
 import { MainService } from './main.service';
-import { NzNotificationService } from 'ng-zorro-antd';
+import { AccountService } from '../core/account.service';
 @Component({
     templateUrl: 'main.component.html',
     styleUrls: ['main.component.scss']
@@ -11,13 +11,16 @@ export class MainComponent implements OnInit, OnDestroy {
     isCollapsed = false;
     menu = [];
     currentModule: any;
+    get userInfo() {
+        return this.as.getUserInfo();
+    }
     private lifeCycle = true;
-    constructor(private router: Router, private mainService: MainService) { }
+    constructor(private router: Router, private mainService: MainService, private as: AccountService) { }
 
     ngOnInit() {
         this.mainService.getMenu().subscribe((resp: any) => {
             this.menu = resp;
-        })
+        });
         this.currentModule = this.determineCurrentModule(location.href.split('#')[1]);
         this.router.events.pipe(
             filter(e => e instanceof NavigationEnd),
@@ -46,5 +49,8 @@ export class MainComponent implements OnInit, OnDestroy {
             }, []).find(m => url.indexOf(m.url) >= 0);
         }
         return current;
+    }
+    logout() {
+        this.as.logout();
     }
 }
