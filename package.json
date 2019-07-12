@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~8.1.0",
     "@angular/platform-browser-dynamic": "~8.1.0",
     "@angular/router": "~8.1.0",
+    "@typebytes/ngx-template-streams": "^1.1.0",
     "core-js": "^2.5.4",
     "echarts": "^4.2.1",
     "ng-zorro-antd": "^8.0.2",
@@ -49,6 +50,7 @@
     "sass-loader": "^7.1.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.4.5"
+    "typescript": "~3.4.5",
+    "ngx-build-plus": "^8.0.3"
   }
 }

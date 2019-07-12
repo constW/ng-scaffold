@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { filter, takeWhile, map } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
+import { MainService } from './main.service';
 import { NzNotificationService } from 'ng-zorro-antd';
 @Component({
     templateUrl: 'main.component.html',
@@ -9,31 +9,15 @@ import { NzNotificationService } from 'ng-zorro-antd';
 })
 export class MainComponent implements OnInit, OnDestroy {
     isCollapsed = false;
-    menu = [
-        { text: '概览', icon: 'dashboard', url: '/main/dashboard', sub: false },
-        { text: '组织管理', icon: 'cluster', url: '/main/organization', sub: false },
-        { text: '账号管理', icon: 'team', url: '/main/manage', sub: false },
-        { text: '角色管理', icon: 'audit', url: '/main/rule', sub: false },
-        {
-            text: '系统设置', icon: 'setting', sub: true, children: [
-                { text: '通知设置', icon: '', url: '/main/notice', sub: false, },
-                { text: '系统设置', icon: '', url: '/main/setIcon', sub: false, }
-            ]
-        },
-        {
-            text: '个人中心', icon: 'user', sub: true, children: [
-                { text: '预留信息', icon: '', url: '/main/notice', sub: false, },
-                { text: '修改密码', icon: '', url: '/main/setIcon', sub: false, }
-            ]
-        },
-    ];
-
+    menu = [];
     currentModule: any;
     private lifeCycle = true;
-    constructor(private router: Router, private notification: NzNotificationService,
-        private route: ActivatedRoute) { }
+    constructor(private router: Router, private mainService: MainService) { }
 
     ngOnInit() {
+        this.mainService.getMenu().subscribe((resp: any) => {
+            this.menu = resp;
+        })
         this.currentModule = this.determineCurrentModule(location.href.split('#')[1]);
         this.router.events.pipe(
             filter(e => e instanceof NavigationEnd),

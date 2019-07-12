@@ -1,0 +1,68 @@
+{
+    "code": 1,
+    "data": [
+        {
+            "text": "概览",
+            "icon": "dashboard",
+            "url": "/main/dashboard",
+            "sub": false
+        },
+        {
+            "text": "组织管理",
+            "icon": "cluster",
+            "url": "/main/organization",
+            "sub": false
+        },
+        {
+            "text": "账号管理",
+            "icon": "team",
+            "url": "/main/manage",
+            "sub": false
+        },
+        {
+            "text": "角色管理",
+            "icon": "audit",
+            "url": "/main/rule",
+            "sub": false
+        },
+        {
+            "text": "系统设置",
+            "icon": "setting",
+            "sub": true,
+            "children": [
+                {
+                    "text": "通知设置",
+                    "icon": "",
+                    "url": "/main/notice",
+                    "sub": false
+                },
+                {
+                    "text": "系统设置",
+                    "icon": "",
+                    "url": "/main/setIcon",
+                    "sub": false
+                }
+            ]
+        },
+        {
+            "text": "个人中心",
+            "icon": "user",
+            "sub": true,
+            "children": [
+                {
+                    "text": "预留信息",
+                    "icon": "",
+                    "url": "/main/notice",
+                    "sub": false
+                },
+                {
+                    "text": "修改密码",
+                    "icon": "",
+                    "url": "/main/setIcon",
+                    "sub": false
+                }
+            ]
+        }
+    ],
+    "message":"请求成功"
+}

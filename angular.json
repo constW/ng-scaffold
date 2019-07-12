@@ -15,7 +15,7 @@
       },
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "outputPath": "dist/ng-scaffold",
             "index": "src/index.html",
@@ -36,7 +36,9 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "webWorkerTsConfig": "tsconfig.worker.json"
+            "webWorkerTsConfig": "tsconfig.worker.json",
+            "extraWebpackConfig": "node_modules/@typebytes/ngx-template-streams/webpack/webpack.config.js",
+            "plugin": "~node_modules/@typebytes/ngx-template-streams/internal/plugin.js"
           },
           "configurations": {
             "production": {
@@ -66,9 +68,11 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "ng-scaffold:build"
+            "browserTarget": "ng-scaffold:build",
+            "extraWebpackConfig": "node_modules/@typebytes/ngx-template-streams/webpack/webpack.config.js",
+            "plugin": "~node_modules/@typebytes/ngx-template-streams/internal/plugin.js"
           },
           "configurations": {
             "production": {
@@ -83,7 +87,7 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "ngx-build-plus:karma",
           "options": {
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
@@ -97,7 +101,9 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
-            ]
+            ],
+            "extraWebpackConfig": "node_modules/@typebytes/ngx-template-streams/webpack/webpack.config.js",
+            "plugin": "~node_modules/@typebytes/ngx-template-streams/internal/plugin.js"
           }
         },
         "lint": {

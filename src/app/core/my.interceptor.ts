@@ -60,7 +60,7 @@ export class MyInterceptor implements HttpInterceptor {
         switch (event.status) {
             case 200:
                 if (event instanceof HttpResponse) {
-                    const body: any = event.body;
+                    const body: any = event.body;                    
                     const { code, message, data } = body;
 
                     if (code !== 1) {
