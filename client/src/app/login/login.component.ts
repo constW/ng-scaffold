@@ -22,9 +22,11 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getImgCodeUrl();
     this.validateForm = this.formBuilder.group({
       login: [null, [Validators.required]],
       password: [null, [Validators.required]],
+      imgCode: [null, [Validators.required]]
     });
   }
 
@@ -44,5 +46,9 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/main']);
         });
     }
+
+  }
+  getImgCodeUrl(): void {
+    this.imgCodeUrl = `/api/getCaptcha?rnd=${Math.random()}`;
   }
 }

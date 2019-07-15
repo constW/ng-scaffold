@@ -6,7 +6,6 @@ const envConstants = {
     ServerUrl: 'http://172.20.128.11:8080/api/cii'
   }
 };
-
 const env = process.env.ENV_NAME || 'dev';
 const envConstant = envConstants[env];
 

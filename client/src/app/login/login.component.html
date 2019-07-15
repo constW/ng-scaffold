@@ -29,6 +29,23 @@
                 </nz-form-control>
             </nz-form-item>
             <nz-form-item>
+                <nz-form-control class="steps-content">
+                    <nz-input-group [nzPrefix]="prefixSafety">
+                        <input class="text-left ipt_height width-80" id="imgCode" nz-input formControlName="imgCode"
+                            placeholder="请输入验证码">
+                        <div class="pointer code-img">
+                            <img id="ramdomcode" [src]="imgCodeUrl" (click)="getImgCodeUrl()" />
+                            <span class="change-code pointer" (click)="getImgCodeUrl()">看不清，换一张</span>
+                        </div>
+                    </nz-input-group>
+                    <nz-form-explain *ngIf="validateForm.get('imgCode').dirty && validateForm.get('imgCode').errors">
+                        <i nz-icon class="mrg-right-5" nzType="close-circle" nzTheme="outline"></i>
+                        图形验证码不能为空
+                    </nz-form-explain>
+                </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
                 <nz-form-control class="mrg-top-20">
                     <nz-spin [nzSpinning]="isSpinning" [nzDelay]="500">
                         <button nz-button class="login-form-button" [nzType]="'primary'" (click)="submit()">
