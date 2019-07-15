@@ -5,31 +5,35 @@
     <nz-row class="login-control">
         <form nz-form [formGroup]="validateForm" class="login-form">
             <nz-form-item>
-                <nz-form-control>
+                <nz-form-control [nzErrorTip]="userErrorTpl">
                     <nz-input-group [nzPrefix]="prefixUser">
                         <input class="text-left ipt_height" type="text" nz-input formControlName="login"
                             placeholder="请输入用户名">
                     </nz-input-group>
-                    <nz-form-explain *ngIf="validateForm.get('login').dirty && validateForm.get('login').errors">
-                        <i nz-icon class="mrg-right-5" nzType="close-circle" nzTheme="outline"></i>
-                        请输入登录账号
-                    </nz-form-explain>
+                    <ng-template #userErrorTpl let-control>
+                        <ng-container *ngIf="validateForm.get('login').dirty && validateForm.get('login').errors">
+                            <i nz-icon class="mrg-right-5" nzType="close-circle" nzTheme="outline"></i>
+                            请输入登录账号
+                        </ng-container>
+                    </ng-template>
                 </nz-form-control>
             </nz-form-item>
             <nz-form-item>
-                <nz-form-control>
+                <nz-form-control [nzErrorTip]="pawErrorTpl">
                     <nz-input-group [nzPrefix]="prefixLock">
                         <input type="password" class="text-left ipt_height" nz-input formControlName="password"
                             placeholder="请输入登录密码">
                     </nz-input-group>
-                    <nz-form-explain *ngIf="validateForm.get('password').dirty && validateForm.get('password').errors">
-                        <i nz-icon class="mrg-right-5" nzType="close-circle" nzTheme="outline"></i>
-                        请输入登录密码
-                    </nz-form-explain>
+                    <ng-template #pawErrorTpl let-control>
+                        <ng-container *ngIf="validateForm.get('password').dirty && validateForm.get('password').errors">
+                            <i nz-icon class="mrg-right-5" nzType="close-circle" nzTheme="outline"></i>
+                            请输入登录密码
+                        </ng-container>
+                    </ng-template>
                 </nz-form-control>
             </nz-form-item>
             <nz-form-item>
-                <nz-form-control class="steps-content">
+                <nz-form-control class="steps-content" [nzErrorTip]="imgTpl">
                     <nz-input-group [nzPrefix]="prefixSafety">
                         <input class="text-left ipt_height width-80" id="imgCode" nz-input formControlName="imgCode"
                             placeholder="请输入验证码">
@@ -38,10 +42,12 @@
                             <span class="change-code pointer" (click)="getImgCodeUrl()">看不清，换一张</span>
                         </div>
                     </nz-input-group>
-                    <nz-form-explain *ngIf="validateForm.get('imgCode').dirty && validateForm.get('imgCode').errors">
-                        <i nz-icon class="mrg-right-5" nzType="close-circle" nzTheme="outline"></i>
-                        图形验证码不能为空
-                    </nz-form-explain>
+                    <ng-template #imgTpl let-control>
+                        <ng-container *ngIf="validateForm.get('imgCode').dirty && validateForm.get('imgCode').errors">
+                            <i nz-icon class="mrg-right-5" nzType="close-circle" nzTheme="outline"></i>
+                            图形验证码不能为空
+                        </ng-container>
+                    </ng-template>
                 </nz-form-control>
             </nz-form-item>
 
