@@ -9,14 +9,16 @@ export class LoginGuard implements CanLoad, CanActivate {
   canLoad(route: Route): boolean {
     if (this.as.isUserLogin()) {
       return true;
-    }    
+    }
+    this.router.navigate(['/login']);
     return false;
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (this.as.isUserLogin()) {
       return true;
-    }    
+    }
+    this.router.navigate(['/login']);
     return false;
   }
 }
