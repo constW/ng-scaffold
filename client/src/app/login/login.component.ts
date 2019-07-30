@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     private cookieService: CookieService
   ) { }
 
-  ngOnInit() {
+  ngOnInit() {    
     this.getImgCodeUrl();
     this.validateForm = this.formBuilder.group({
       login: [null, [Validators.required]],

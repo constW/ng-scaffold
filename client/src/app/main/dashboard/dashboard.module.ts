@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard.routing.module';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { DashboardService } from './dashboard.service';
 @NgModule({
   declarations: [DashboardComponent],
   imports: [
@@ -14,6 +15,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
     FormsModule,
     ReactiveFormsModule,
     NgxEchartsModule
-  ]
+  ],
+  providers: [DashboardService]
 })
 export class DashboardModule { }
